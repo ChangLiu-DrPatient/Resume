@@ -152,6 +152,10 @@
 
 \newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
 
+% tighter vertical spacing between bullets
+\setlist[itemize]{itemsep=0pt, parsep=1pt, topsep=2pt}
+\setlist[enumerate]{itemsep=1pt, parsep=0pt, topsep=2pt}
+
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
 % CHANGED default leftmargin  0.15 in
@@ -159,7 +163,7 @@
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
-\newcommand{\resumeAwardListStart}{\begin{itemize}}
+\newcommand{\resumeAwardListStart}{\begin{itemize}[itemsep=4pt, parsep=2pt]}
 \newcommand{\resumeAwardListEnd}{\end{itemize}\vspace{0pt}}
 
 \color{text-grey}
@@ -191,8 +195,8 @@
       \resumeItemListStart
         \resumeItem {Advisor: Prof. Artur Dubrawski.}
         % \resumeItem {QPA: \textbf{4.21/4.33}.}
-        \resumeItem {Research Interests: LLM post-training, Agentic AI, machine learning in healthcare.}
-        \resumeItem {Courses: Advanced Introduction to Machine Learning, Intermediate Statistics, Advanced Machine Learning: Theory and Methods, Advanced Deep Learning, Machine Learning for Large Datasets.}
+        \resumeItem {Research Interests: Agentic AI and LLM agents, LLM post-training, systems for AI, machine learning in healthcare.}
+        \resumeItem {Courses: Machine Learning for Large Datasets (distributed \& parallel ML), Advanced Deep Learning, Advanced Introduction to Machine Learning, Advanced Machine Learning: Theory and Methods, Intermediate Statistics.}
       \resumeItemListEnd
     \resumeSubheading
       {Yao Class, Institute for Interdisciplinary Information Sciences (IIIS)}{Established by Prof. Andrew C. Yao}
@@ -207,6 +211,15 @@
         %           Data Mining, Quantum Computer Science, Introduction to Robotics, Algorithm Design, Theory of Computation.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
+
+  \section{Skills}
+  \begin{itemize}[leftmargin=0in, label={}, itemsep=0pt, parsep=0pt, topsep=0pt]
+    \item \small{\textbf{Languages:} Python, C++, Bash.}
+    \item \small{\textbf{AI Agents \& Agentic Systems:} LLM agents, agent flow / agentic workflow design, tool use, multi-agent scaffolds (CodeAct, mini-swe-agent, AWS Strands), prompt engineering.}
+    \item \small{\textbf{Systems for AI \& Distributed Computing:} distributed and parallel training (multi-GPU, Ray, FSDP), distributed RL post-training (verl, vLLM), federated learning, large-scale data processing (Spark/MapReduce), efficient LLM inference.}
+    \item \small{\textbf{Machine Learning:} LLM post-training (RL, GRPO), retrieval-augmented generation, LLM evaluation and benchmarking, LLM pruning, multimodal ML (EHR, mass spectra), graph neural networks.}
+    \item \small{\textbf{Tools:} PyTorch, Hugging Face, Git, Linux.}
+  \end{itemize}
 
   \section{Industry Experience}
   \resumeSubHeadingListStart
@@ -246,25 +259,26 @@
 \resumeSubHeadingListStart
     \resumeSubheading
     {Experiential Abstractions in LLMs}{05/2026 - 09/2026}
-    {LLM post-training. Reinforcement learning. verl. Retrieval-augmented LLMs. }{Carnegie Mellon University}%\\ \vspace{2pt}
+    {LLM post-training. Distributed RL training (verl). Retrieval-augmented LLMs.}{Carnegie Mellon University}%\\ \vspace{2pt}
     \resumeItemListStart
       \resumeItem {Develop a novel framework for improving LLM problem-solving abilities by first extracting abstractions from training, and then absorbing them via in-context learning or RL.}
+      \resumeItem {Run multi-GPU distributed GRPO training with verl (Ray-orchestrated FSDP training workers and vLLM rollout engines).}
       \resumeItem {Improve mathematical reasoning abilities compared to naive GRPO, even without a strong teacher for abstraction extraction. pass@1/pass@8: \textbf{46.89/70.54 $\to$ 49.07/71.14}. }
       \resumeItem{Accepted at EMNLP Findings. Paper link \href{https://arxiv.org/abs/2607.20372}{here}.}
     \resumeItemListEnd
     
     \resumeSubheading
-    {Lightweight LLM agents for MLE}{05/2025 - 08/2025}
-    {Coding agents. AWS strands. Prompt engineering. Scaffold engineering}{Carnegie Mellon University}%\\ \vspace{2pt}
+    {Lightweight LLM agents for ML engineering (Agentic AI)}{05/2025 - 08/2025}
+    {LLM agents. Agent flow design. Tool use. AWS Strands. Scaffold engineering.}{Carnegie Mellon University}%\\ \vspace{2pt}
     \resumeItemListStart
-        \resumeItem {Develop a lightweight LLM agent for machine learning engineering (MLE).}
-      \resumeItem {Adopt the CodeAct paradigm (draft and revise) and invoke \href{https://github.com/swe-agent/mini-swe-agent}{mini-swe-agent} as a tool.}
+        \resumeItem {Develop a lightweight agentic system that autonomously completes end-to-end machine learning engineering (MLE) tasks.}
+      \resumeItem {Design a multi-step agent flow following the CodeAct paradigm (draft, execute, revise), delegating code edits to a \href{https://github.com/swe-agent/mini-swe-agent}{mini-swe-agent} sub-agent invoked as a tool.}
       \resumeItem {Use AWS's \href{https://strandsagents.com/}{strands} library for building the agents. Project link \href{https://github.com/ChangLiu-DrPatient/miniMLEagent}{here}. }
     \resumeItemListEnd
     
     \resumeSubheading
     {Depth pruning and emergent abilities of pruned LLMs}{12/2024 - 09/2025}
-    {LLM pruning. LLM inference. Huggingface. Benchmarking}{Carnegie Mellon University}%\\ \vspace{2pt}
+    {System for AI. Efficient LLM inference. LLM pruning. Hugging Face. Benchmarking.}{Carnegie Mellon University}%\\ \vspace{2pt}
     \resumeItemListStart
       \resumeItem {Propose a novel depth-based LLM pruning method that retains key reasoning abilities under \textbf{10}-fold compression.}
       \resumeItem{Systematically benchmarked the emergent abilities of aggressively pruned LLMs. Paper link \href{https://openreview.net/forum?id=aP3sv2xrGH}{here}.}
@@ -395,8 +409,6 @@
   % \resumeAward{University Full Scholarship for Future Scholars}{Tsinghua University}{2019}
  \resumeAwardListEnd
 
-  \section{Skills}
-    LLM agents and agentic workflows, LLM post-training (RL, GRPO), retrieval-augmented generation, LLM pruning, LLM evaluation and benchmarking, multimodal ML, multimodal health data (EHR, mass spectra, antimicrobial resistance), graph neural networks, bioinformatics analysis, Python, PyTorch, Git, Linux.
 % \section{Academic Service}
 % \resumeItemListStart
 % \resumeItem{\textbf{Peer Review:} Reviewed 19 academic papers. NeurIPS Neural Artifacts Workshop 2026 (3), NeurIPS 2026 (1), NeurIPS UniReps Workshop 2025 (2), AMIA Amplify Informatics Conference 2026 (5), AMIA Annual Symposium (8).}
