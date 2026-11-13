@@ -1,0 +1,405 @@
+%-------------------------
+% Resume in Latex
+% Author : Harshibar
+% Based off of: https://github.com/jakeryang/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{graphicx,scalerel}
+\usepackage{fontspec}
+% \usepackage[colorlinks = true,
+%             linkcolor = blue,
+%             urlcolor  = magenta,
+%             citecolor = blue,
+%             anchorcolor = blue]{hyperref}
+% only for pdflatex
+% \input{glyphtounicode}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=magenta,
+    linkcolor=magenta,
+    citecolor=magenta
+}
+% fontawesome
+\usepackage{fontawesome5}
+
+% fixed width
+\usepackage[scale=0.90,lf]{FiraMono}
+
+% light-grey
+\definecolor{light-grey}{gray}{0.83}
+\definecolor{dark-grey}{gray}{0.3}
+\definecolor{text-grey}{gray}{.08}
+
+\DeclareRobustCommand{\ebseries}{\fontseries{eb}\selectfont}
+\DeclareTextFontCommand{\texteb}{\ebseries}
+
+% custom underilne
+\usepackage{contour}
+\usepackage[normalem]{ulem}
+\renewcommand{\ULdepth}{1.8pt}
+\contourlength{0.8pt}
+\newcommand{\myuline}[1]{%
+  \uline{\phantom{#1}}%
+  \llap{\contour{white}{#1}}%
+}
+
+
+% custom font: helvetica-style
+\usepackage{tgheros}
+\renewcommand*\familydefault{\sfdefault} 
+%% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{0in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting - serif
+% \titleformat{\section}{
+%   \vspace{2pt} \scshape \raggedright\large % header section
+% }{}{0em}{}[\color{black} \titlerule \vspace{-5pt}]
+
+% TODO EBSERIES
+% sans serif sections
+\titleformat {\section}{
+    \centering \Large \bfseries \vspace{2pt}% \raggedright  % header section
+}{}{0em}{}[\color{dark-grey} {\titlerule[2pt]} \vspace{-4pt}]
+
+% only for pdflatex
+% Ensure that generate pdf is machine readable/ATS parsable
+% \pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{\textit{#1}} & {\color{dark-grey}\small #2}\vspace{1pt}\\ % top row of resume entry
+      \textit{#3} & {\color{dark-grey} \small #4}\\ % second row of resume entry
+    \end{tabular*}\vspace{-4pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectheading}[2]{
+    \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{\textit{#1}} & {\color{dark-grey} \small #2} \\
+    \end{tabular*}\vspace{-4pt}
+}
+
+%  ------------MY COMMANDS------------
+\newcommand{\sbullet}[1][.5]{\mathbin{\vcenter{\hbox{\scalebox{#1}{$\bullet$}}}}}
+
+\newcommand{\resumeAward}[3]{
+    \item[]\hspace*{-\leftmargin}%
+    \begin{tabular*}{\dimexpr\linewidth+\leftmargin\relax}{@{}l@{\extracolsep{\fill}}r@{}}\textbf{$\sbullet$\hspace{0.5em}\small #1}, \textit{\small #2} & \small #3 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeLongAward}[3]{
+    \item[]
+    \begin{tabular*}{0.94\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{$\sbullet$ \small#1},\\ \textit{\ \ \small #2} & \small #3 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+
+
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% CHANGED default leftmargin  0.15 in
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{0pt}}
+\newcommand{\resumeAwardListStart}{\begin{itemize}}
+\newcommand{\resumeAwardListEnd}{\end{itemize}\vspace{0pt}}
+
+\color{text-grey}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge Chang Liu} \\ \vspace{5pt}
+    \small \faEnvelope \hspace{2pt} \texttt{\href{mailto:changl8@andrew.cmu.edu}{changl8@andrew.cmu.edu}} \hspace{1pt} 
+    $|$ \hspace{1pt} \faHome \hspace{2pt} \texttt{\href{https://changliu-drpatient.github.io/}{\color{magenta}{changliu-drpatient.github.io}}} \hspace{1pt} 
+    \\ \vspace{-3pt}
+\end{center}
+
+% \begin{center}
+%     Start Date: \textbf{Monday, May 12}; End Date: \textbf{Monday, August 11}
+% \end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Kenneth C. Griffin School of Computer Science}{}
+      {Carnegie Mellon University, Ph.D. Student in Machine Learning}{08/2023 - 05/2028(est.)}
+      \resumeItemListStart
+        \resumeItem {Advisor: Prof. Artur Dubrawski.}
+        % \resumeItem {QPA: \textbf{4.21/4.33}.}
+        \resumeItem {Research Interests: LLM post-training, Agentic AI, machine learning in healthcare.}
+        \resumeItem {Courses: Advanced Introduction to Machine Learning, Intermediate Statistics, Advanced Machine Learning: Theory and Methods, Advanced Deep Learning, Machine Learning for Large Datasets.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Yao Class, Institute for Interdisciplinary Information Sciences (IIIS)}{Established by Prof. Andrew C. Yao}
+      {Tsinghua University, B.Eng. in Computer Science}{08/2019 - 06/2023}
+      \resumeItemListStart
+        \resumeItem {GPA: \textbf{3.91/4.00}.}
+        \resumeItem {TOEFL: \textbf{120/120}. Reading: 30, Listening: 30, Speaking: 30, Writing: 30.}
+        \resumeItem {GRE: \textbf{340/340}. Quant: 170, Verbal: 170, Writing: 5.}
+        % \resumeItem {Mathematics Courses: Calculus, Linear Algebra, Abstract Algebra, Mathematics for Computer Science, Mathematics for Artificial Intelligence, 
+        %             Probability and Statistics.}
+        % \resumeItem {Computer Science Courses: Machine Learning, Reinforcement Learning, Computational Biology, Computer Vision, Deep Learning, Natural Language Processing, Introduction to Databases, 
+        %           Data Mining, Quantum Computer Science, Introduction to Robotics, Algorithm Design, Theory of Computation.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+  \section{Industry Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {TikTok: Video Recommendation}{}
+      {Research Intern}{05/2026 - 08/2026}
+      \resumeItemListStart
+      \resumeItem{Model user preference on PGC (professionally generated content) to boost recommendation performance.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+  
+ 
+% %-----------EXPERIENCE-----------
+% \section{Ongoing Research}
+%     \resumeSubHeadingListStart
+%           \resumeSubheading
+%     {LLM agents for time series machine learning engineering}{07/2025 - Now}
+%     {Advised by Prof. Artur Dubrawski.}{Carnegie Mellon University}%\\ \vspace{2pt}
+%     \resumeItemListStart
+%       \resumeItem {Develop an agentic AI framework for machine learning engineering tasks on time series data.}
+%     \resumeItemListEnd
+%     \resumeSubheading
+%     {Heterogeneous federated learning of foundation models}{03/2025 – Now}
+%     {Advised by Prof. Artur Dubrawski.}{Carnegie Mellon University}%\\ \vspace{2pt}
+%     \resumeItemListStart
+%       \resumeItem {Develop a framework for fine-tuning foundation models with task heterogeneity in a federated learning setting using knowledge distillation.}
+%     \resumeItemListEnd
+%      \resumeSubheading
+%     {Effieicnt Compression of LLMs}{11/2024 – Now}
+%     {Advised by Prof. Artur Dubrawski.}{Carnegie Mellon University}%\\ \vspace{2pt}
+%     \resumeItemListStart
+%       \resumeItem {Explore and innovate depth-based pruning methodologies of LLMs.}
+%     \resumeItemListEnd
+    
+%     \resumeSubHeadingListEnd
+\section{Research Experience}
+\resumeSubHeadingListStart
+    \resumeSubheading
+    {Experiential Abstractions in LLMs}{05/2026 - 09/2026}
+    {LLM post-training. Reinforcement learning. verl. Retrieval-augmented LLMs. }{Carnegie Mellon University}%\\ \vspace{2pt}
+    \resumeItemListStart
+      \resumeItem {Develop a novel framework for improving LLM problem-solving abilities by first extracting abstractions from training, and then absorbing them via in-context learning or RL.}
+      \resumeItem {Improve mathematical reasoning abilities compared to naive GRPO, even without a strong teacher for abstraction extraction. pass@1/pass@8: \textbf{46.89/70.54 $\to$ 49.07/71.14}. }
+      \resumeItem{Accepted at EMNLP Findings. Paper link \href{https://arxiv.org/abs/2607.20372}{here}.}
+    \resumeItemListEnd
+    
+    \resumeSubheading
+    {Lightweight LLM agents for MLE}{05/2025 - 08/2025}
+    {Coding agents. AWS strands. Prompt engineering. Scaffold engineering}{Carnegie Mellon University}%\\ \vspace{2pt}
+    \resumeItemListStart
+        \resumeItem {Develop a lightweight LLM agent for machine learning engineering (MLE).}
+      \resumeItem {Adopt the CodeAct paradigm (draft and revise) and invoke \href{https://github.com/swe-agent/mini-swe-agent}{mini-swe-agent} as a tool.}
+      \resumeItem {Use AWS's \href{https://strandsagents.com/}{strands} library for building the agents. Project link \href{https://github.com/ChangLiu-DrPatient/miniMLEagent}{here}. }
+    \resumeItemListEnd
+    
+    \resumeSubheading
+    {Depth pruning and emergent abilities of pruned LLMs}{12/2024 - 09/2025}
+    {LLM pruning. LLM inference. Huggingface. Benchmarking}{Carnegie Mellon University}%\\ \vspace{2pt}
+    \resumeItemListStart
+      \resumeItem {Propose a novel depth-based LLM pruning method that retains key reasoning abilities under \textbf{10}-fold compression.}
+      \resumeItem{Systematically benchmarked the emergent abilities of aggressively pruned LLMs. Paper link \href{https://openreview.net/forum?id=aP3sv2xrGH}{here}.}
+    \resumeItemListEnd
+    % \resumeSubHeadingListEnd
+
+
+% \section{Healthcare Research Experience}
+%     \resumeSubHeadingListStart
+    \resumeSubheading
+    {Multimodal outbreak detection in hospitals}{10/2023 - Now}
+    {Multimodal ML. ML for healthcare. }{Carnegie Mellon University}%\\ \vspace{2pt}
+    \resumeItemListStart
+      % \resumeItem {Developed a semi-supervised pretraining and finetuning framework with a UNet-based autoencoder for MALDI-TOF data.}
+      \resumeItem {Develop a multimodal machine learning framework for hospital outbreak detection that integrates signals from MALDI-TOF mass spectra, antimicrobial resistant patterns, and electronic health records (EHR).}
+      \resumeItem {Enable cost-effective outbreak detection that can reduce dependency on whole genome sequencing gold standard by \textbf{80\%} while retaining \textbf{80\%} discriminatory power.}
+    \resumeItemListEnd
+
+
+    \resumeSubheading
+      {Multimodal disease target identification through a probabilistic knowledge graph}{09/2021 - 05/2023}
+      {Multimodal ML. Graph Neural Networks. Computational biology.}{Tsinghua University}%\\ \vspace{2pt}
+      \resumeItemListStart
+        \resumeItem {Develop a novel method of augmenting biological networks with literature evidence to construct a probabilistic knowledge graph.} 
+        \resumeItem {Develop a graph neural network to predict target candidates from the knowledge graph, achieving superior performance to state-of-the-art 
+        models in terms of accuracy (esp. on sparse data) and literature support for top novel predictions.}
+        \resumeItem {Conduct bioinformatics analyses and cooperate with experimental validation of the identified colorectal cancer and melanoma targets.}
+      \resumeItemListEnd
+
+      % \resumeSubheading
+      % {Reconstructing the Allele-specific Genome Structure from Hi-C Contacts}{03/2022 - 03/2023}
+      % {Advised by Prof. Jian Ma.}{Carnegie Mellon University}%\\ \vspace{2pt}
+      % \resumeItemListStart
+      %   \resumeItem {Developed an improved particle dynamics framework (based on \textit{hickit})
+      %   that iterates between inferring chromosome contact phases and 3D genomic coordinates to fully exploit their common information.}
+      %   \resumeItem {Developed a new graph neural network to implicitly impute the phases of the 
+      %   Hi-C contacts and reconstruct the allele-specific 3D genome structure.}
+      % \resumeItemListEnd
+
+    % \resumeSubheading
+    %   {Discovering Competitive Binding of Transcription Factors}{05/2021 - 02/2023}
+    %   {Advised by Prof. Jianyang Zeng.}{Tsinghua University}
+    %   \resumeItemListStart
+    %     \resumeItem {Developed a framework to infer in-vivo competitive TF binding 
+    %     (the binding of one TF removes that of the other), consisting of a deep neural network, several motif analyses, and statistical tests.}
+    %     \resumeItem {Cooperated with experimental validation of the predicted competing TF pairs (in progress).}
+    %   \resumeItemListEnd
+    
+    % \resumeSubheading
+    %   {Predicting Antigen Binding Sites through Graph Neural Networks}{06/2021 - 08/2021}
+    %   {Advised by Prof. Boxue Tian.}{Tsinghua University}
+    %   \resumeItemListStart
+    %     \resumeItem {Developed a graph neural network to predict antigen binding residues using 
+    %     antigen-antibody compound data in the SAbDAb database based on \href{http://www.csbio.sjtu.edu.cn/bioinf/GraphBind/sourcecode.html}{\textit{GraphBind}}, 
+    %     a DNA/RNA-Protein binding site prediction model.} 
+    %     \resumeItem {Utilized the model to validate lab-generated compounds.}
+    %   \resumeItemListEnd
+
+    % \resumeSubheading
+    %   {Intelligent Diabetes Management}{12/2020 - 02/2021}
+    %   {Advised by Prof. Yang Yuan.}{Tsinghua University}
+    %   \resumeItemListStart
+    %     \resumeItem {Cooperated with Shanghai Zhongshan Hospital to investigate the needs of the endocrinology department and its patients.}
+    %     \resumeItem {Developed a deep learning framework for predicting future patient blood sugar levels from patient records for pre-emptive alerts.} 
+    %     \resumeItem {Developed a deep learning framework for predicting the proper dosage of insulin to be administered to alleviate the demand for 
+    %     expert consultation.}
+    %   \resumeItemListEnd
+
+    % \resumeProjectheading
+    %   {Course Projects}{Tsinghua University}
+    %   \resumeItemListStart
+    %     \resumeItem {Separating Bone Inscription Images through Computer Vision Techniques}
+    %     \resumeItem {Avoiding Catastrophic Failure in Reinforcement Learning}
+    %     \resumeItem {Encoding Semantics into Word Embeddings through Dictionaries}
+    %     \resumeItem {Detecting and Ranking Communities in the DBLP Database}
+    %   \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+
+
+%
+%-----------PROGRAMMING SKILLS-----------
+
+\section{Selected Publications}
+\begin{enumerate}
+    \item Alexander J. Sundermann$^*$; Jieshi Chen; \textbf{Chang Liu};...; Artur Dubrawski; Lora Lee Pless; Lee H. Harrison. ``MALDI-TOF for healthcare transmission prediction: comparison with whole genome sequencing'' \textit{Infection Control \& Hospital Epidemiology}, October 2026.
+    
+    \item \textbf{Chang Liu}; Xinyu Li; Artur Dubrawski$^*$.``Notes to Self: Can LLMs Benefit from Experiential Abstractions?''  \textit{EMNLP Findings}, August 2026. paper link \href{https://arxiv.org/abs/2607.20372}{here}.
+    
+    \item \textbf{Chang Liu}; Jieshi Chen; Alexander J. Sundermann; Kathleen Shutt; Marissa P. Griffith; Lora Lee Pless; Lee H. Harrison; Artur Dubrawski$^*$.``Towards Practical Multimodal Hospital Outbreak Detection,'' \textit{AMIA Annual Symposium}, May 2026.
+        
+    \item \textbf{Chang Liu}; Jieshi Chen; Alexander J. Sundermann; Kathleen Shutt; Marissa P. Griffith; Lora Lee Pless; Lee H. Harrison; Artur Dubrawski$^*$.``Exploring the Utility of MALDI-TOF Mass Spectrometry and Antimicrobial Resistance in Hospital Outbreak Detection,'' \textit{AMIA Amplify Informatics Conference}, February 2026.
+
+    
+    \item \textbf{Chang Liu$^\dag$}; Arjun Choudhry$^\dag$; Yifu Cai; Nina \.{Z}ukowska; Mononito Goswami; Artur Dubrawski. ``Depth as a Scaling Vector: Simple Pruning and Evaluation of Emergent Abilities in Pruned LLMs,'' \textit{NeurIPS 2025 Workshop on Evaluating the Evolving LLM Lifecycle: Benchmarks, Emergent Abilities, and Scaling}, September 2025.
+
+    % \item Arjun Choudhry$^\dag$; \textbf{Chang Liu$^\dag$}; Nina \.{Z}ukowska; Yifu Cai; Mononito Goswami; Artur Dubrawski. ``LayerMerge: Modality-Agnostic Depth Pruning for Efficient Foundation Model Deployment,'' \textit{NeurIPS 2025 Workshop on Efficient Reasoning}, September 2025.
+
+    % \item Miko{\l}aj Pi\'{o}rczy\'{n}ski; Wojciech {\L}apacz; Xinyu Li; \textbf{Chang Liu}; Abby Turner; Artur Dubrawski. ``From Aggregation to Guidance: Strategies for Personalized Federated Fine-Tuning of Foundation Models，'' \textit{NeurIPS 2025 Workshop on Unifying Representations in Neural Models}, September 2025.
+    
+    \item \textbf{Chang Liu}; Jieshi Chen; Lee H. Harrison; Artur Dubrawski$^*$. ``Bridging the Utility Gap Between MALDI-TOF and WGS for Affordable Outbreak Cluster Detection,'' \textit{The AHLI Conference on Health, Inference, and Learning (CHIL)}, April 2025.
+    
+    % \item \textbf{Chang Liu}; Jieshi Chen; Lee H. Harrison; Artur Dubrawski$^*$. ``Multimodal Structure Preservation Learning,''\textit{arXiv preprint}, October 2024.
+  
+    \item \textbf{Chang Liu$^\dag$}; Kaimin Xiao$^\dag$; Cuinan Yu$^\dag$; Yipin Lei$^\dag$;...;
+    Dan Zhao$^*$; Fengfeng Zhou$^*$; Haidong Tang$^*$; Jianyang Zeng$^*$. 
+  ``A Probabilistic Knowledge Graph for Target Identification,'' \textit{PLOS Computational Biology}, April 2024.
+  
+  % \item \textbf{Chang Liu$^\dag$}; Cuinan Yu$^\dag$; Yipin Lei$^\dag$;...;
+  % Dan Zhao$^*$; Fengfeng Zhou$^*$; Jianyang Zeng$^*$.
+  % ``Improving Target-disease Association Prediction through a Graph Neural Network with Credibility Information,''
+  % proceedings of the \textit{Pacific Symposium on Biocomputing}, January 2023. \\
+\end{enumerate}
+
+\section{Honors \& Awards}
+ \resumeAwardListStart
+  \resumeAward{Comprehensive Merit Award (7/32)}{Tsinghua University}{2022}
+% \resumeAward{3rd place in the 100m Men's Freestyle}{Tsinghua University}{2021}
+  \resumeAward{Comprehensive Merit Award (6/32)}{Tsinghua University}{2021}
+  % \resumeLongAward{Gold Prize in the Magnus Royal Youth International Piano Competition Semi-Final in China}{Magnus Conservatory of Music, Lithuania}{2021}
+  % \resumeLongAward{2nd place in the National College Water Polo Championship (university water polo team)}{Federation of University Sports of China}{2021}
+  % \resumeAward{4th place in the 50m Men's Freestyle}{Tsinghua University}{2021}
+  % \resumeAward{1st place in the 200m Mens' Medley}{Tsinghua University}{2021}
+  % \resumeAward{37th place in the Campus Mini Marathon}{Tsinghua University}{2020}
+  % \resumeAward{Excellence Award for Volunteering Services}{Tsinghua University}{2020}
+  % \resumeAward{Freshmen Scholarship}{Tsinghua University}{2019}
+  % \resumeAward{University Full Scholarship for Future Scholars}{Tsinghua University}{2019}
+ \resumeAwardListEnd
+
+  \section{Skills}
+    LLM agents and agentic workflows, LLM post-training (RL, GRPO), retrieval-augmented generation, LLM pruning, LLM evaluation and benchmarking, multimodal ML, multimodal health data (EHR, mass spectra, antimicrobial resistance), graph neural networks, bioinformatics analysis, Python, PyTorch, Git, Linux.
+% \section{Academic Service}
+% \resumeItemListStart
+% \resumeItem{\textbf{Peer Review:} Reviewed 19 academic papers. NeurIPS Neural Artifacts Workshop 2026 (3), NeurIPS 2026 (1), NeurIPS UniReps Workshop 2025 (2), AMIA Amplify Informatics Conference 2026 (5), AMIA Annual Symposium (8).}
+% \resumeItemListEnd
+%-------------------------------------------
+\end{document}
